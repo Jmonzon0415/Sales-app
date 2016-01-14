@@ -1,0 +1,29 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { 
+  font-family: Lobster; 
+  text-align: center;
+  background-color: #dc6900; }
+
+h1 {  margin-top: -8px;
+      font-size: 60px;
+      color: #602320 ;
+      padding-bottom: 50px;
+      border-bottom: dotted 5px #e0301e}
+
+h2 { color: #602320; } 
+
+img {border-radius: 20px;
+      border: dotted 4px #e0301e }
+ 
+
+a:link  { 
+      text-decoration: none;
+
+     }
+
+p {font-size: 25px;}
+
+div { background-image: url("http://www.glennrandall.com/images/aspen_panorama_master_900.jpg") }
