@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
       @product = Product.find_by(id: params[:id]) 
       @product.update ({name: params[:name], image: params[:image], description: params[:description], price: params[:price]  })  
       #Adding flash Message when it is edited/updated
-      flash[:success] = "New Product edit"
+      flash[:success] = "New Product Edited"
       redirect_to "/"
       redirect_to "/index/#{@product.id}"
   end
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
       @product = Product.find_by(id: params[:id]) 
       @product.destroy 
       #Adds message when Product is destroyed   
-      flash[:warning] = "New Product Destroyed"
+      flash[:warning] = " Product Destroyed"
       redirect_to "/"
   end
 

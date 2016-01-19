@@ -11,9 +11,12 @@
     <h3><%= @sp.description %></h3>
     <h3>$<%= @sp.price %></h3>  
 
+      <!-- Adds Delete Button with A confirm destroy -->
+      
       <h2><a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow">Delete </a></h2>
 
 
+  <!-- Link buttons to home and edit pages -->
+  
   <h2><%= link_to "Edit", "/index/#{@sp.id}/edit"  %></h2>
-
- <h2> <%= link_to "Home", "/" %> </h2> 
+  <h2> <%= link_to "Home", "/" %> </h2> 
