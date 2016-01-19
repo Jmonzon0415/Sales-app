@@ -1,0 +1,19 @@
+
+  
+<div class="top"><h1>New Syrup! </h1> </div>
+
+
+<p> View all our Syrups <a href="/index"> here</a></p>
+
+
+    <h3> <img src="<%= @sp.image %>"></h3>
+    <h3><%= @sp.name %></h2>
+    <h3><%= @sp.description %></h3>
+    <h3>$<%= @sp.price %></h3>  
+
+      <h2><a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow">Delete </a></h2>
+
+
+  <h2><%= link_to "Edit", "/index/#{@sp.id}/edit"  %></h2>
+
+ <h2> <%= link_to "Home", "/" %> </h2> 

@@ -8,7 +8,16 @@
 </head>
 <body>
 
+ <div class="cotainer">
+ <% flash.each do |name, message| %> 
+  
+  <!-- Adds alerts the data was edited of delted --> 
+  <div class="alert alert-<%= name %>" role="alert"><%= message %></div>
+  <% end %>  
+
 <%= yield %>
+
+</div>
 
 </body>
 </html>

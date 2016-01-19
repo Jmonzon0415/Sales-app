@@ -1,0 +1,34 @@
+<div class="top"><h1> Our Craft Syrups </h1> </div>
+
+
+
+
+<h2><%= link_to "Add New Product", "/index/new" %> </h2>
+
+
+<% @ap.each do |product| %>
+
+
+
+
+
+      <h3><a href="/index/<%= product.id %>"> <img src="<%= product.image %>"></h3>
+      <h3><a href="/index/<%= product.id %>"><%= product.name %></h3>
+      <h3><%= product.description %></h3>
+      <h3>$<%= product.price %></h3>  
+
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
