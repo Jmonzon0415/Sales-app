@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   
   def create 
     @product = Product.create ({name: params[:name], image: params[:image], description: params[:description], price: params[:price]  })
+  
   #Adding flash Message when it is Created 
   flash[:success] = "New Product Made! Thank you!"
   redirect_to "/"
@@ -24,15 +25,17 @@ class ProductsController < ApplicationController
 
   def edit 
     @product = Product.find_by(id: params[:id]) 
+    @product.updated_at
   end
 
 
   def update 
       @product = Product.find_by(id: params[:id]) 
       @product.update ({name: params[:name], image: params[:image], description: params[:description], price: params[:price]  })  
+      
       #Adding flash Message when it is edited/updated
       flash[:success] = "New Product Edited"
-      redirect_to "/"
+    
       redirect_to "/index/#{@product.id}"
   end
 

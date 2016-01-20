@@ -2,17 +2,18 @@
 
 
 
+<a class="btn btn-primary" href="/index/new" role="button">Add New Products</a>
 
-<h2><%= link_to "Add New Product", "/index/new" %> </h2>
-
-
+<div class="row"> 
   <% @ap.each do |product| %>
-
-      <p><a href="/index/<%= product.id %>"> <img src="<%= product.image %>"> </p>
-      <p><a href="/index/<%= product.id %>"><%= product.name %></a></p>
+    <div class="col-md-4"> 
+     <p><a href="/index/<%= product.id %>"> <img src="<%= product.image %>"> </p>
+      <a class="btn btn-primary" href="/index/<%= product.id %>" role="button"><%= product.name %></a>
       <p><%= product.description %></p>
       <p>$<%= product.price %></p>  
- 
+    </div>
+  
+
   <% end %>
 
 

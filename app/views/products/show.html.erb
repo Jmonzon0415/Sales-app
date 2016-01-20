@@ -1,22 +1,22 @@
 
   
-<div class="top"><h1>New Syrup! </h1> </div>
+<div class="top"><h1> <%= @sp.name %>  </h1> </div>
 
-
-<p> View all our Syrups <a href="/index"> here</a></p>
-
+<h1>Updated on: <%= @sp.friendly_updated_at %> </h1>
 
     <h3> <img src="<%= @sp.image %>"></h3>
     <h3><%= @sp.name %></h2>
+    <h3></h3>
     <h3><%= @sp.description %></h3>
     <h3>$<%= @sp.price %></h3>  
 
       <!-- Adds Delete Button with A confirm destroy -->
       
-      <h2><a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow">Delete </a></h2>
+
+  <a class="btn btn-primary" href="/index/<%= @sp.id %>/edit" role="button">EDIT</a>
+
+   <a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow"><div class= "delete">Delete</div> </a>
 
 
-  <!-- Link buttons to home and edit pages -->
-  
-  <h2><%= link_to "Edit", "/index/#{@sp.id}/edit"  %></h2>
-  <h2> <%= link_to "Home", "/" %> </h2> 
+
+

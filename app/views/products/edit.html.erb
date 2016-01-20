@@ -1,5 +1,7 @@
 <div class="top"><h1> Edit: <%= @product.name %> </h1> </div>
 
+<h1>Updated on: </h1>
+
 <%= form_tag "/index/#{@product.id}", method: :patch do %>
 
   <div>
