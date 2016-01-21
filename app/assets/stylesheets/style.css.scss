@@ -35,12 +35,29 @@ p { color: #F8F8F8; }
 .delete { color: #e0301e;
           font-size: 35px;}
 
-.navbar {
-          color: #F8F8F8; 
-      
 
-        }
+.navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 160px;
+        text-align: center;
+        background-color: #a32020;
 
+    }
+.navbar>.container .navbar-brand-centered, 
+.navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -80px;
+        color: white;
+    }
+
+.top { margin-top: 60px; } 
+
+.navbar { background-color: #a32020;
+
+          }
+
+a.link { color: white;}
 
 
 
