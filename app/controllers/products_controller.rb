@@ -2,17 +2,33 @@ class ProductsController < ApplicationController
   
 
   def show
-   @sp = Product.find_by(id: params[:id])
+   @sp = Product.find_by(id: params[:id])  
  end
   
   def index 
     @ap = Product.all
-  end
+    
+   if params[:filter]
+     if params[:filter] == "L_H"
+        @ap = Product.order(:price)
+      elsif params[:filter] == "H_L"
+        @ap = Product.order(price: :desc)
+      elsif params[:filter] == "discount"
+        @ap = Product.where("price < ?", 2)
+      elsif params[:filter] == "random"
+        @ap = Product.all.sample
+        redirect_to "/index/#{@ap.id}"
+      end
+    else
+     @ap = Product.all 
+    end
 
+ end
+
+      
 
   def new
   end 
-
   
   def create 
     @product = Product.create ({name: params[:name], image: params[:image], description: params[:description], price: params[:price]  })
@@ -46,6 +62,11 @@ class ProductsController < ApplicationController
       #Adds message when Product is destroyed   
       flash[:warning] = " Product Destroyed"
       redirect_to "/"
+  end
+
+  def search 
+    @ap = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%") 
+   render :index 
   end
 
 

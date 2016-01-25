@@ -24,5 +24,8 @@ class Product < ActiveRecord::Base
     p "$#{total.to_f.round(2)}" 
   end 
 
+  
+
+
 
 end

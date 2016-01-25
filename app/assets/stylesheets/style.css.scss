@@ -40,24 +40,38 @@ p { color: #F8F8F8; }
         position: absolute;
         left: 50%;
         display: block;
-        width: 160px;
+        width: 200px;
         text-align: center;
         background-color: #a32020;
+        font-size: 21px;
 
     }
 .navbar>.container .navbar-brand-centered, 
 .navbar>.container-fluid .navbar-brand-centered {
-        margin-left: -80px;
+        margin-left: -90px;
         color: white;
     }
 
-.top { margin-top: 60px; } 
+.top { margin-top: 70px; } 
 
 .navbar { background-color: #a32020;
 
           }
 
 a.link { color: white;}
+
+
+.nav>.narbar-form { width: 100px;}
+
+
+
+
+
+
+
+
+
+    
 
 
 
