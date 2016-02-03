@@ -1,0 +1,19 @@
+
+
+<h1>Our Suppliers</h1>
+
+<a class="btn btn-primary" href="/suppliers/index/new" role="button">Add New Suppliers</a>
+  
+
+<div class="row"> 
+  <% @as.each do |supplier| %>
+    <div class="col-md-4"> 
+     <div class="supplier-view"
+    <h2> <p><%= supplier.name %></p> </h2>
+      <p><%= supplier.email %></p>  
+      <p><%= supplier.phone %></p>
+    </div>
+    </div>
+  
+
+  <% end %>

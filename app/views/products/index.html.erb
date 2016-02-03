@@ -1,25 +1,30 @@
 <div class="top"><h1> Our Craft Syrups </h1> </div>
 
 
-<a class="btn btn-primary"  href="/index/?filter=discount" role="button"> Clearence</a></li>
+<a class="btn btn-primary"  href="/index?filter=discount" role="button"> Clearence</a></li>
 
 
-<a class="btn btn-primary"  href="/index/?filter=L_H" role="button">Price: Lowest To Highest </a></li>
+<a class="btn btn-primary"  href="/index?filter=L_H" role="button">Price: Lowest To Highest </a></li>
 
-<a class="btn btn-primary"  href="/index/?filter=H_L" role="button">Price: Higest to Lowest</a></li>
+<a class="btn btn-primary"  href="/index?filter=H_L" role="button">Price: Higest to Lowest</a></li>
+<a class="btn btn-primary"  href="/index?category=organic" role="button">Organic</a></li>
+<a class="btn btn-primary"  href="/index?category=domestic" role="button">Domestic</a></li>
+<a class="btn btn-primary"  href="/index?category=canadian" role="button">Canadian</a></li>
 
-<a class="btn btn-primary"  href="/index/?filter=random" role="button">Random</a></li>
+<a class="btn btn-primary"  href="/index?filter=random" role="button">Random</a></li>
 <a class="btn btn-primary" href="/index/new" role="button">Add New Products</a>
+
 
 
 <div class="row"> 
   <% @ap.each do |product| %>
     <div class="col-md-4"> 
-     <p><a href="/index/<%= product.id %>"> <img src="<%= product.image %>"> </p>
+      <p><img src="<%= product.get_first_image %>"></p>
       <a class="btn btn-primary" href="/index/<%= product.id %>" role="button"><%= product.name %></a>
       <p><%= product.description %></p>
       <p><%= number_to_currency(product.price) %></p>  
       <p><%= product.sale_message %></p>
+      <p><%= product.supplier_name %></p>
     </div>
   
 

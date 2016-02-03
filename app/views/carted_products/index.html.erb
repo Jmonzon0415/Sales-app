@@ -1,0 +1,21 @@
+<h1><% @cp.each do |cart|  %></h1>
+
+<h1> Cart for <%=cart.user.email %> </h1>
+
+<div class="cart-img"></div><p><img src="<%= cart.product.get_first_image %>"></p> </div>
+<p>Product: <%=cart.product.name %> <%= link_to "Remove Item", "cart/#{cart.id}," method: :delete %></p>
+<p> Price: <%=cart.product.price %></p>
+<p> Order Status: <%= cart.status %></p>
+
+
+<p>Quantity: <%= cart.quantity %> </p>
+
+<% end %>
+
+
+<%= form_tag "/orders", method: :post do %>
+
+<%= submit_tag "Buy Now", class: "btn btn-success" %>
+    
+
+    <% end %>

@@ -1,5 +1,15 @@
 class Product < ActiveRecord::Base
   
+  has_many :images
+  
+  has_many :carted_products
+  has_many :orders, through: :carted_products
+
+  has_many :catergorized_products 
+  has_many :catergories, through: :catergorized_products
+
+  belongs_to :supplier
+  
    def friendly_updated_at
     updated_at.strftime("%b %e, %Y" )
   end  
@@ -21,10 +31,27 @@ class Product < ActiveRecord::Base
   
   def total_sum
     total = price.to_f + tax 
-    p "$#{total.to_f.round(2)}" 
+  p total  
   end 
 
+  def supplier_name 
+    supplier.name
+  end
+
+  def get_first_image
+    if images.first 
+        images.first.url
+      else 
+        Image.first.url
+    end
   
+
+
+  end 
+
+
+
+
 
 
 

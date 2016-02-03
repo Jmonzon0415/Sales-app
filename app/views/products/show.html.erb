@@ -4,14 +4,39 @@
 
 <h1>Updated on: <%= @sp.friendly_updated_at %> </h1>
 
-    <h3> <img src="<%= @sp.image %>"></h3>
+     <% @sp.images.each do |image| %>
+          <p><img src= "<%= image.url %>" ></p>
+    <% end %>
     <h3><%= @sp.name %></h2>
     <h3></h3>
     <h3><%= @sp.description %></h3>
+    <h3><%= @sp.supplier_name %></h3>
     <h3><%= number_to_currency(@sp.price) %></h3>  
     <h3><%= @sp.sale_message %></h3>
-    <h3></h3>
+    <h3> Tax: <%= number_to_currency(@sp.tax) %></h3>
     <h3>Total with tax: <%= number_to_currency(@sp.total_sum) %></h3>
+
+
+
+
+
+<%= form_tag "/cart", method: :post do %>
+
+  <%= hidden_field_tag :product_id, @sp.id %>
+
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity   %>
+  </div>
+
+  <%= submit_tag "Add to Cart", class: "btn btn-success" %>
+    
+
+    <% end %>
+
+
+      
+
 
       <!-- Adds Delete Button with A confirm destroy -->
       
@@ -19,6 +44,9 @@
   <a class="btn btn-primary" href="/index/<%= @sp.id %>/edit" role="button">EDIT</a>
 
    <a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow"><div class= "delete">Delete</div> </a>
+
+
+
 
 
 

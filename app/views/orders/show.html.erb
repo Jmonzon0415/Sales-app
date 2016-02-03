@@ -1,0 +1,6 @@
+<h1>Your Orders </h1>
+<h1>Quantity: <%= @order.quantity %> </h1>
+<h1> <%= @order.user.email %></h1>
+<h1>Sub Total: <%= @order.subtotal %></h1>
+<h1>Tax: <%= @order.tax %> </h1>
+<h1>Total: <%= number_to_currency(@order.total) %> </h1>

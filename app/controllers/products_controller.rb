@@ -2,7 +2,8 @@ class ProductsController < ApplicationController
   
 
   def show
-   @sp = Product.find_by(id: params[:id])  
+   @sp = Product.find_by(id: params[:id]) 
+    
  end
   
   def index 
@@ -17,13 +18,13 @@ class ProductsController < ApplicationController
         @ap = Product.where("price < ?", 2)
       elsif params[:filter] == "random"
         @ap = Product.all.sample
-        redirect_to "/index/#{@ap.id}"
+        redirect_to "/index/#{@ap.id}"  
       end
-    else
-     @ap = Product.all 
     end
-
- end
+    if params[:category]
+     @ap = Category.find_by(name: params[:category]).products                   
+    end
+end 
 
       
 
@@ -31,7 +32,8 @@ class ProductsController < ApplicationController
   end 
   
   def create 
-    @product = Product.create ({name: params[:name], image: params[:image], description: params[:description], price: params[:price]  })
+    @product = Product.create ({name: params[:name], description: params[:description], price: params[:price]  })
+    Image.create({url: params[:image], product_id: @product_id})if params[:image] != "" 
   
   #Adding flash Message when it is Created 
   flash[:success] = "New Product Made! Thank you!"
