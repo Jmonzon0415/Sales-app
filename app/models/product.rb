@@ -1,5 +1,14 @@
 class Product < ActiveRecord::Base
   
+validates :name, presence: true
+validates :name, format: { with: /\A[a-zA-Z]+\z/ } 
+validates :price, presence: true
+validates :price, numericality: { only_integer: false, greater_than: 0 }
+
+
+
+
+
   has_many :images
   
   has_many :carted_products
@@ -45,8 +54,6 @@ class Product < ActiveRecord::Base
         Image.first.url
     end
   
-
-
   end 
 
 

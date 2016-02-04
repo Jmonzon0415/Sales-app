@@ -29,6 +29,7 @@
     <%= text_field_tag :quantity   %>
   </div>
 
+
   <%= submit_tag "Add to Cart", class: "btn btn-success" %>
     
 
@@ -40,10 +41,13 @@
 
       <!-- Adds Delete Button with A confirm destroy -->
       
-
+<% if user_signed_in? && current_user.admin %>
+  
   <a class="btn btn-primary" href="/index/<%= @sp.id %>/edit" role="button">EDIT</a>
 
    <a data-confirm="Are you sure ?" data-method="delete" href="/index/<%= @sp.id%>" rel= "nofollow"><div class= "delete">Delete</div> </a>
+
+<% end %>
 
 
 

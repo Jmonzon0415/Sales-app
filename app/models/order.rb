@@ -4,17 +4,20 @@ belongs_to :user
 has_many :carted_products
 has_many :products, through: :carted_products
 
-def calc_subtotal(price)
-  price * quantity
-end
+def calculate_totals 
 
-def calc_tax(tax_rate)
-  subtotal * tax_rate
-end
+  subtotal = 0
 
+carted_products.each do |carted_product| 
+  subtotal += carted_product.product.price * carted_product.quantity
 
-def calc_total
-  subtotal + tax 
-end
+end 
+
+tax = subtotal * 0.09
+total = subtotal + tax 
+
+update(subtotal: subtotal, tax: tax, total: total)
+
+end 
 
 end 

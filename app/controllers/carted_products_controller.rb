@@ -7,11 +7,20 @@ class CartedProductsController < ApplicationController
   end
 
   def index 
+
       if user_signed_in? && current_user.carted_products.where(status: "Carted").any?
     @cp = current_user.carted_products.where(status: "Carted")
     else 
       redirect_to "/"
     end
+  end 
+
+  def destroy 
+    carted_products = carted_products.find_by(params[:id])
+    carted_products.update(status: "Removed")
+
+    redirect_to "/cart "
+
   end 
 
 end 

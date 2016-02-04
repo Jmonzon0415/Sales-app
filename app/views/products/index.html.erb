@@ -12,8 +12,10 @@
 <a class="btn btn-primary"  href="/index?category=canadian" role="button">Canadian</a></li>
 
 <a class="btn btn-primary"  href="/index?filter=random" role="button">Random</a></li>
-<a class="btn btn-primary" href="/index/new" role="button">Add New Products</a>
 
+<% if user_signed_in? && current_user.admin %>
+<a class="btn btn-primary" href="/index/new" role="button">Add New Products</a>
+<% end %>
 
 
 <div class="row"> 

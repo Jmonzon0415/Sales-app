@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #showingcartedproducts and showing cart
   post '/cart' => 'carted_products#create'
   get '/cart' => 'carted_products#index'
+  delete '/cart' => 'carted_products#destroy'
   
   #making new products
   get '/index/new' => 'products#new'
